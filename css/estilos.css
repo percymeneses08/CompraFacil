@@ -1,0 +1,87 @@
+body {
+  display: grid;
+  justify-content: center;
+  margin: 10px 0;
+  font-family: 'Frank Ruhl Libre', serif;
+  font-weight: 900;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  justify-self: center;
+  width: 569px;
+}
+.banner {
+  width: 300px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  color: #00b894;
+  font-size: 50px;
+}
+.options {
+  display: inherit;
+  grid-template-columns: repeat(2, minmax(400px, 293px));
+}
+figure {
+  box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+  width: 280px;
+  height: 280px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.primero {
+  justify-self: flex-end;
+}
+.segundo {
+  justify-self: flex-start;
+}
+figure img {
+  width: 100%;
+}
+.button {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.button button {
+  background: #d63031;
+  border: 0px;
+  border-radius: 14px;
+  height: 60px;
+  width: 183px;
+  color: white;
+  cursor: pointer;
+  font-size: 25px;
+  outline: none;
+}
+@media screen and (max-width: 1023px) {
+  header {
+    justify-content: space-around;
+  }
+}
+@media screen and (max-width: 767px) {
+  header {
+    display: grid;
+  }
+  .banner,
+  .button {
+    margin-bottom: 30px;
+  }
+  .options {
+    grid-template-columns: repeat(1, minmax(400px, 293px));
+    justify-content: center;
+  }
+  figure {
+    width: 300px;
+    height: 300px;
+  }
+  .primero,
+  .segundo {
+    justify-self: center;
+  }
+}
