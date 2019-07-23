@@ -1,4 +1,4 @@
-body {
+.body-grid {
   display: grid;
   justify-content: center;
   margin: 10px 0;
@@ -48,7 +48,7 @@ figure img {
   justify-content: center;
   align-items: center;
 }
-.button button {
+.button a {
   background: #d63031;
   border: 0px;
   border-radius: 14px;
@@ -58,7 +58,107 @@ figure img {
   cursor: pointer;
   font-size: 25px;
   outline: none;
+  text-decoration: none;
+  text-align: center;
+  line-height: 60px;
 }
+/*FERNANDO*/
+main{
+  text-align: center;
+}
+.shadow{
+  box-shadow: 0 1px 0px 1px rgba(0, 0, 0, 0.05), 0 2px 3px 1px rgba(0, 0, 0, 0.1);
+}
+.banner-resultados{
+  background-color: #55efc4;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin: 50px 50px 0 50px;
+}
+.container-list{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  padding: 50px;
+}
+h2{
+  color: white;
+  font-size: 45px;
+  font-weight: 900;
+  margin: 0 auto;
+}
+.productos{
+  margin-top: 20px;
+  height: auto;
+  width: 200px;
+  border-radius: 5px;
+}
+.categoria{
+  width: 100%;
+  height: 50px;
+  background-color: darkgray;
+  margin-bottom: 15px;
+  font-size: 24px;
+  border-radius: 5px;
+  line-height: 50px;
+}
+.producto{
+  width: 150px;
+  height: 50px;
+  background-color: #74b9ff;
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-size: 24px;
+  line-height: 50px;
+}
+.destino{
+  background-color: blueviolet;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
+  color: white;
+}
+.supermercado2, .supermercado1, .supermercado3{
+  margin-top: 20px;
+  border-radius: 5px;
+  min-width: 150px;
+  max-width: 200px;
+}
+.super{
+  width: 100%;
+  height: 50px;
+  background-color: #6c5ce7;
+  margin-bottom: 15px;
+  color: #dfe6e9;
+  font-size: 24px;
+  border-radius: 5px;
+  line-height: 50px;
+}
+.precio{
+  margin-bottom: 15px;
+  background-color: #ffeaa7;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  border-radius: 5px;
+  line-height: 50px;
+}
+.precio_total{
+  width: 100%;
+  height: 50px;
+  background-color: cornflowerblue;
+  font-size: 24px;
+  border-radius: 5px;
+  line-height: 50px;
+}
+
+/*REPONSIVE*/
 @media screen and (max-width: 1023px) {
   header {
     justify-content: space-around;
