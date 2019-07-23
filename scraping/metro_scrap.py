@@ -16,8 +16,8 @@ for div in div_principal.find_all("div", {"class":"product-item__info"}): #Encue
         print(link['href'])
         links_leche.append(link['href'])
         
-def scrapeando_ando(url): #generalizamos el jalado de data
-    response = requests.get(url) 
+def scrapeando_ando(url): #Generalizamos la funcion
+    response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
     nombre_ = soup.find('div', {'class': 'name-mobile mobile'})
     nombre3 = nombre_.div(string=True)
@@ -25,5 +25,21 @@ def scrapeando_ando(url): #generalizamos el jalado de data
     precio_2 = precio_.find('strong', {'class':'skuBestPrice'}).text
     return nombre3[0], precio_2
 
+list_nombres = []
+list_precios = []
 for links in links_leche:
-    scrapeando_ando(links)
+    nombre, precio = scrapeando_ando(links)
+    list_nombres.append(nombre)
+    list_precios.append(precio)
+
+#Para convertir a JSON, instalando pandas.
+import pandas as pd
+
+data = {'Producto': list_nombres, 
+        'Price': list_precios}
+
+df = pd.DataFrame(data)
+df['Supermercado'] = 'Metro'
+df['Precio_float'] = df.Price.str.extract('(\d+\.\d+)')
+
+export = df.to_json('export_dataframe.json')
