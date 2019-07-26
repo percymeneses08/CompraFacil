@@ -25,7 +25,7 @@ dbRefObject.on('value', function(datasnapshot) {
 dbRefObject1.on('value', function(datasnapshot) {
   var datosnombre = datasnapshot.val();
   console.log(datosnombre);
-});
+}); 
 
 
 // Detectar el click de las imágenes
