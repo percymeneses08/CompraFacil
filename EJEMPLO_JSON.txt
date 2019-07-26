@@ -1,0 +1,46 @@
+{Producto1{
+	Nombre: 'Leche',
+	Subtitulo:'Pack 6 litros',
+	Precio:'10',
+	Precio_float:10.4,
+	Categoria:'Lacteos',
+	Supermercado:'Tottus',
+	Marca:'Gloria'
+	}
+Producto2{
+	Nombre: 'Leche Evaporada',
+	Subtitulo:'1 litro',
+	Precio:'11',
+	Precio_float:10.5,
+	Categoria:'Lacteos',
+	Supermercado:'Tottus',
+	Marca:'Gloria'
+	}
+Producto3{
+	Nombre: 'Leche',
+	Subtitulo:'Pack 6 litros',
+	Precio:'8',
+	Precio_float:8.0,
+	Categoria:'Lacteos',
+	Supermercado:'Tottus',
+	Marca:'Nestle'
+	}
+Producto4{
+	Nombre: 'Leche',
+	Subtitulo:'Pack 6 litros',
+	Precio:'9.4',
+	Precio_float:9.4,
+	Categoria:'Lacteos',
+	Supermercado:'Wong',
+	Marca:'Gloria'
+	}
+Producto5{
+	Nombre: 'Leche',
+	Subtitulo:'Pack 6 litros',
+	Precio:'10',
+	Precio_float:10.4,
+	Categoria:'Lacteos',
+	Supermercado:'Metro',
+	Marca:'Pura Vida'
+	}
+}
