@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 import requests
 import time
 import pandas as pd
+import json
 
 #Definamos la primera función para generar links.
 def hazme_los_links(num, x1 = 'https://www.metro.pe/buscapagina?sl=19ccd66b-b568-43cb-a106-b52f9796f5cd&PS=18&cc=18&sm=0&PageNumber=', 
@@ -70,4 +71,12 @@ df_aceites = get_names_brands_prices(links_de_aceites, categoria = 'Aceites')
 
 df_metro_final = df_lacteos.append([df_arroz,df_azucar,df_aceites], ignore_index=True)
 export = df_metro_final.to_json('df_final_metro.json')
+
+results = {}
+for key, df_gb in df_metro_final.groupby('Categoría'):
+    temp = df_gb.to_dict('records')
+    results[str(key)] = {(key + str(idx)): ele for idx, ele in enumerate(temp)}
+
+with open('metro_data.txt', 'w') as outfile:
+    json.dump(results, outfile)
         
