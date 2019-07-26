@@ -14,38 +14,28 @@ firebase.initializeApp(config);
 const preObject = document.getElementById('object');
 
 var i;
-var precios = [];
-var precios1;
+var price = [];
 var minimo;
-var table;
-
 // Extraigo los datos de firebase, 'Precio_float'
-const dbRefObject1 = firebase.database().ref().child('Marca');
+// const dbRefObject1 = firebase.database().ref().child('Marca');
 
-for (i = 4; i <= 6; i++)
+for (i = 1; i <= 15; i++)
 { 
-  const dbRefObject = firebase.database().ref().child(`Fideos/Producto${i}/Price`);
+  const dbRefObject = firebase.database().ref().child(`Aceites/Totus/Producto${i}/Precio_float`);
   dbRefObject.on('value', function(datasnapshot) {
-    // precios1 = datasnapshot.val();
-    precios.push(datasnapshot.val());
-    // preObject.innerText = precios;
+    price.push(datasnapshot.val());
+
+    minimo = Math.min.apply(null, price);
+
+    console.log(minimo);
+    var indice = (price.indexOf(minimo) + 1);
+      const dbRefObject1 = firebase.database().ref().child(`Aceites/Totus/Producto${indice}/Producto`);
+      dbRefObject1.on('value', function(datasnapshot) {
+        console.log(datasnapshot.val());
+      });
+      console.log(indice);
   });
 }
-
-minimo = Math.min.apply(null, precios);
-// precios = parseInt(precios);
-console.log(minimo);
-// console.log(parseFloat(minimo));
-
-// console.log(nombreMin);
-// console.log(minimo);
-
-// console.log(precios[0]);
-
-// dbRefObject1.on('value', function(datasnapshot) {
-//   var datosnombre = datasnapshot.val();
-//   console.log(datosnombre);
-// });
 
 
 
