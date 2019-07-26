@@ -13,19 +13,39 @@ firebase.initializeApp(config);
 
 const preObject = document.getElementById('object');
 
+var i;
+var precios = [];
+var precios1;
+var minimo;
+var table;
+
 // Extraigo los datos de firebase, 'Precio_float'
-const dbRefObject = firebase.database().ref().child('Precio_float');
 const dbRefObject1 = firebase.database().ref().child('Marca');
 
-dbRefObject.on('value', function(datasnapshot) {
-  var datos = datasnapshot.val();
-  preObject.innerText = datos[1];
-});
+for (i = 4; i <= 6; i++)
+{ 
+  const dbRefObject = firebase.database().ref().child(`Fideos/Producto${i}/Price`);
+  dbRefObject.on('value', function(datasnapshot) {
+    // precios1 = datasnapshot.val();
+    precios.push(datasnapshot.val());
+    // preObject.innerText = precios;
+  });
+}
 
-dbRefObject1.on('value', function(datasnapshot) {
-  var datosnombre = datasnapshot.val();
-  console.log(datosnombre);
-});
+minimo = Math.min.apply(null, precios);
+// precios = parseInt(precios);
+console.log(minimo);
+// console.log(parseFloat(minimo));
+
+// console.log(nombreMin);
+// console.log(minimo);
+
+// console.log(precios[0]);
+
+// dbRefObject1.on('value', function(datasnapshot) {
+//   var datosnombre = datasnapshot.val();
+//   console.log(datosnombre);
+// });
 
 
 
