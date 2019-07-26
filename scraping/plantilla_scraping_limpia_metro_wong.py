@@ -68,6 +68,6 @@ df_arroz = get_names_brands_prices(links_de_arroz,categoria = 'Arroces')
 df_azucar = get_names_brands_prices(links_de_azucar, categoria = 'Azucar')
 df_aceites = get_names_brands_prices(links_de_aceites, categoria = 'Aceites')
 
-
-
+df_metro_final = df_lacteos.append([df_arroz,df_azucar,df_aceites], ignore_index=True)
+export = df_metro_final.to_json('df_final_metro.json')
         
