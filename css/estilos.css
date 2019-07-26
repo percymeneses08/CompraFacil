@@ -1,3 +1,6 @@
+body {
+  background: #fff;
+}
 .body-grid {
   display: grid;
   justify-content: center;
@@ -40,9 +43,19 @@ figure {
 .segundo {
   justify-self: flex-start;
 }
+
 figure img {
   width: 100%;
 }
+
+.select:hover {
+  filter:brightness(0.95);
+}
+
+.is-active {
+  filter:brightness(0.8);
+}
+
 .button {
   display: grid;
   justify-content: center;
@@ -62,6 +75,10 @@ figure img {
   text-align: center;
   line-height: 60px;
 }
+.button a:hover {
+  background: #bd292a;
+}
+
 /*FERNANDO*/
 main{
   text-align: center;

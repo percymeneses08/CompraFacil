@@ -5,16 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Compra fácil</title>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+
   <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre:400,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/estilos.css">
-
-  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-database.js"></script>
 </head>
 <body class="body-grid">
   <header>
-    <div class="banner" id="banner ">
+    <div class="banner" id="object">
       <h1>Compra fácil</h1>
     </div>
     <div class="button">
@@ -22,44 +25,23 @@
     </div>
   </header>
   <div class="options">
-    <figure class="primero">
+    <figure class="primero select" id="uno">
       <img src="images/milk.jpg" alt="first image">
     </figure>
-    <figure class="segundo">
+    <figure class="segundo select" id="dos">
         <img src="images/oil.jpg" alt="third image">
     </figure>
-    <figure class="primero">
+    <figure class="primero select" id="tres">
       <img src="images/sugar.jpg" alt="second image">
     </figure>
-    <figure class="segundo">
+    <figure class="segundo select" id="cuatro">
       <img src="images/rice.jpg" alt="fourth image">
     </figure>
   </div>
 
-  <!-- FIREBASE CONECTION -->
+  <!-- <pre id="object"></pre> -->
 
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+  <script src="js/app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#config-web-app -->
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyBXuy1tyZcsPd4fzi8PPY7111AAu9kK-yc",
-    authDomain: "compra-facil-4d8c6.firebaseapp.com",
-    databaseURL: "https://compra-facil-4d8c6.firebaseio.com",
-    projectId: "compra-facil-4d8c6",
-    storageBucket: "compra-facil-4d8c6.appspot.com",
-    messagingSenderId: "117707978904",
-    appId: "1:117707978904:web:8284144b82e359ee"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
-
-
-  <script type="text/javascript" src="js/data.js"></script>
 </body>
 </html>
