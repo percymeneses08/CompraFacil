@@ -7,6 +7,7 @@
     <title>Resultado</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/7863WhatsApp Image 2019-07-24 at 10.55.36 AM.ico">
 </head>
 <body>
     <div class="banner-resultados shadow">
@@ -14,39 +15,71 @@
     </div>
     <main>
         <div class="container-list">
-            <div class="productos">
-                <div class="categoria shadow">Producto/Tienda</div>
+            <div class="productos hide-responsive">
+                <div class="categoria shadow"><p>Producto/Tienda</p></div>
                 <div class="producto shadow">Leche</div>
                 <div class="producto shadow">Azucar</div>
                 <div class="producto shadow">Aceite</div>
                 <div class="producto shadow">Arroz</div>
-                <div class="destino shadow">Destino de compra en</div>
+                <div class="destino shadow hide-responsive">Destino de compra en</div>
+                <div class="destino shadow hide block-responsive">Comprar en</div>
             </div>
-            <div class="supermercado1">
+            <div id="metro" class="supermercado">
                 <div class="super shadow">Metro</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio_total shadow">$ 4</div>
+                <div class="container-product-metro">
+                    <div class="container-names">
+                        <div class="precio name shadow"><p>name</p></div>
+                        <div class="precio name shadow"><p>name</p></div>
+                        <div class="precio name shadow"><p>name</p></div>
+                        <div class="precio name shadow"><p>name</p></div>
+                    </div>
+                    <div class="container-price">
+                        <div class="precio shadow">1</div>
+                        <div class="precio shadow">1</div>
+                        <div class="precio shadow">1</div>
+                        <div class="precio shadow">1</div>
+                    </div>
+                </div>
+                <div id="totalMetro" class="precio_total shadow"> 4</div>
             </div>
-            <div class="supermercado2">
+            <div id="tottus" class="supermercado">
                 <div class="super shadow">Tottus</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio_total shadow">$ 4</div>
+                <div class="container-product-tottus">
+                    <div class="container-names">
+                        <div class="precio name shadow"><p>name</p></div>
+                        <div class="precio name shadow"><p>name</p></div>
+                        <div class="precio name shadow"><p>name</p></div>
+                        <div class="precio name shadow"><p>name</p></div>
+                    </div>
+                    <div class="container-price">
+                        <div class="precio shadow">1</div>
+                        <div class="precio shadow">1</div>
+                        <div class="precio shadow">1</div>
+                        <div class="precio shadow">1</div>
+                    </div>
+                </div>
+                <div id="totalTottus" class="precio_total shadow">4</div>
             </div>
-            <div class="supermercado3">
+            <div id="wong" class="supermercado">
                 <div class="super shadow">Wong</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio_total shadow">$ 4</div>
+                <div class="container-product-wong">
+                    <div class="container-names">
+                        <div class="precio name shadow"><p>name</p></div>
+                        <div class="precio name shadow"><p>name</p></div>
+                        <div class="precio name shadow"><p>name</p></div>
+                        <div class="precio name shadow"><p>name</p></div>
+                    </div>
+                    <div class="container-price">
+                        <div class="precio shadow">1</div>
+                        <div class="precio shadow">1</div>
+                        <div class="precio shadow">1</div>
+                        <div class="precio shadow">1</div>
+                    </div>
+                </div>
+                <div id="TotalWong" class="precio_total shadow">4</div>
             </div>
         </div>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
