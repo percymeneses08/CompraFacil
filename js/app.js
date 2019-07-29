@@ -11,79 +11,115 @@ const config = {
 firebase.initializeApp(config);
 // fin de la configuración con el firebase
 
-const preObject = document.getElementById('object');
+var nameHTML, productoHTML, producto, tienda, place, largo;
 
-// Extraigo los datos de firebase, 'Precio_float'
-const dbRefObject = firebase.database().ref().child('Precio_float');
-const dbRefObject1 = firebase.database().ref().child('Marca');
-
-dbRefObject.on('value', function(datasnapshot) {
-  var datos = datasnapshot.val();
-  preObject.innerText = datos[1];
-});
-
-dbRefObject1.on('value', function(datasnapshot) {
-  var datosnombre = datasnapshot.val();
-  console.log(datosnombre);
-}); 
+var i;
 
 
-// Detectar el click de las imágenes
-var uno = document.getElementById("uno");
-var dos = document.getElementById("dos");
-var tres = document.getElementById("tres");
-var cuatro = document.getElementById("cuatro");
-
-uno.addEventListener('click', selectAnimationUno);
-dos.addEventListener('click', selectAnimationDos);
-tres.addEventListener('click', selectAnimationTres);
-cuatro.addEventListener('click', selectAnimationCuatro);
-
-function selectAnimationUno() {
-  if(uno.classList.contains('is-active')) 
+function MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo)
+{
+  var price = [];
+  var minimo;
+  // Extraigo los datos de firebase, 'Precio_float'
+  // const dbRefObject1 = firebase.database().ref().child('Marca');
+  var divName = document.getElementById(nameHTML);
+  var divPrice = document.getElementById(productoHTML);
+  
+  for (i = 0; i < largo; i++)
   {
-    uno.classList.remove('is-active');
-    uno.classList.add('select');
-  }
-  else 
-  {
-    uno.classList.add('is-active');
-    uno.classList.remove('select');
+    const dbRefObject = firebase.database().ref().child(`${place}/${tienda}/${producto}/${producto}${i}/Precio_float`);
+    
+    dbRefObject.on('value', function(datasnapshot) {
+      price.push(parseFloat(datasnapshot.val()));
+      // console.log(price);
+      minimo = Math.min.apply(null, price);
+      divPrice.innerText = minimo;
+
+      if (price.length == largo)
+      {
+        // console.log(minimo);
+        
+        var indice = (price.indexOf(minimo));
+        // console.log(indice);
+
+        const dbRefObject1 = firebase.database().ref().child(`${place}/${tienda}/${producto}/${producto}${indice}/Producto`);
+        dbRefObject1.on('value', function(datasnapshot) {
+          // console.log(datasnapshot.val());
+          divName.innerText = datasnapshot.val();
+        });
+      }
+    });
   }
 }
-function selectAnimationDos() {
-  if(dos.classList.contains('is-active')) 
-  {
-    dos.classList.remove('is-active');
-    dos.classList.add('select');
-  }
-  else 
-  {
-    dos.classList.add('is-active');
-    dos.classList.remove('select');
-  }
-}
-function selectAnimationTres() {
-  if(tres.classList.contains('is-active')) 
-  {
-    tres.classList.remove('is-active');
-    tres.classList.add('select');
-  }
-  else 
-  {
-    tres.classList.add('is-active');
-    tres.classList.remove('select');
-  }
-}
-function selectAnimationCuatro() {
-  if(cuatro.classList.contains('is-active')) 
-  {
-    cuatro.classList.remove('is-active');
-    cuatro.classList.add('select');
-  }
-  else 
-  {
-    cuatro.classList.add('is-active');
-    cuatro.classList.remove('select');
-  }
-}
+place = 'Supermercados';
+
+
+
+tienda = 'Metro';
+
+nameHTML = "leche-metro-name";
+productoHTML = "leche-metro-price";
+producto = 'Lacteos';
+largo = 449;
+MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+nameHTML = "azucar-metro-name";
+productoHTML = "azucar-metro-price";
+producto = 'Azucar';
+largo = 61;
+MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+nameHTML = "aceite-metro-name";
+productoHTML = "aceite-metro-price";
+producto = 'Aceites';
+largo = 54;
+MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+nameHTML = "arroz-metro-name";
+productoHTML = "arroz-metro-price";
+producto = 'Arroces';
+largo = 35;
+MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+
+tienda = 'Tottus';
+
+nameHTML = "leche-tottus-name";
+productoHTML = "leche-tottus-price";
+producto = 'Lacteos';
+largo = 20;
+MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+nameHTML = "azucar-tottus-name";
+productoHTML = "azucar-tottus-price";
+producto = 'Azucar';
+largo = 38;
+MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+nameHTML = "aceite-tottus-name";
+productoHTML = "aceite-tottus-price";
+producto = 'Aceites';
+largo = 85;
+MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+nameHTML = "arroz-tottus-name";
+productoHTML = "arroz-tottus-price";
+producto = 'Arroces';
+largo = 47;
+MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+
+tienda = 'Wong';
+
+nameHTML = "leche-wong-name";
+productoHTML = "leche-wong-price";
+producto = 'Lacteos';
+largo = 697;
+MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+nameHTML = "azucar-wong-name";
+productoHTML = "azucar-wong-price";
+producto = 'Azucar';
+largo = 68;
+MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+nameHTML = "aceite-wong-name";
+productoHTML = "aceite-wong-price";
+producto = 'Aceites';
+largo = 89;
+MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+nameHTML = "arroz-wong-name";
+productoHTML = "arroz-wong-price";
+producto = 'Arroces';
+largo = 35;
+MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);

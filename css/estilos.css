@@ -1,3 +1,6 @@
+body {
+  background: #fff;
+}
 .body-grid {
   display: grid;
   justify-content: center;
@@ -40,9 +43,19 @@ figure {
 .segundo {
   justify-self: flex-start;
 }
+
 figure img {
   width: 100%;
 }
+
+.select:hover {
+  filter:brightness(0.95);
+}
+
+.is-active {
+  filter:brightness(0.8);
+}
+
 .button {
   display: grid;
   justify-content: center;
@@ -55,13 +68,19 @@ figure img {
   height: 60px;
   width: 183px;
   color: white;
-  cursor: pointer;
+  /* cursor: pointer; */
   font-size: 25px;
   outline: none;
   text-decoration: none;
   text-align: center;
   line-height: 60px;
 }
+.button a:hover {
+  background: #bd292a;
+}
+
+/* Mostrando datos de firebase */
+
 /*FERNANDO*/
 main{
   text-align: center;
@@ -123,11 +142,10 @@ h2{
   border-radius: 5px;
   color: white;
 }
-.supermercado2, .supermercado1, .supermercado3{
+.supermercado{
   margin-top: 20px;
   border-radius: 5px;
-  min-width: 150px;
-  max-width: 200px;
+  width: 25%;
 }
 .super{
   width: 100%;
@@ -139,7 +157,18 @@ h2{
   border-radius: 5px;
   line-height: 50px;
 }
-.precio{
+.container-product-metro, .container-product-tottus, .container-product-wong{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.container-names{
+  width: 78%;
+}
+.container-price{
+  width: 20%
+}
+.precio, .name{
   margin-bottom: 15px;
   background-color: #ffeaa7;
   height: 50px;
@@ -157,11 +186,21 @@ h2{
   border-radius: 5px;
   line-height: 50px;
 }
+.hide{
+  display: none;
+}
 
 /*REPONSIVE*/
 @media screen and (max-width: 1023px) {
   header {
     justify-content: space-around;
+  }
+  /*fernando*/
+  .productos{
+    margin-right: 5px;
+  }
+  .supermercado{
+    margin-right: 5px;
   }
 }
 @media screen and (max-width: 767px) {
@@ -184,4 +223,45 @@ h2{
   .segundo {
     justify-self: center;
   }
+
+  /*fernando*/
+  .banner-resultados{
+    margin: 50px 10px 10px 10px;
+  }
+  h2{
+    font-size: 20px;
+  }
+  .block-responsive{
+    display: block;
+  }
+  .hide-responsive{
+    display: none;
+  }
+  .container-list{
+    width: 100%;
+    padding: 10px;
+    display: block;
+  }
+  .categoria{
+    font-size: 14px;
+    color: white;
+    padding: 5px;
+    line-height: 40px;
+  }
+  .productos{
+    width: 45%;
+    font-size: 14px;
+  }
+  .supermercado{
+    width: 70%;
+    font-size: 14px;
+    display: inline-block;
+  }
+  .container-names{
+    width: 78%;
+  }
+  .container-price{
+    width: 20%;
+  }
+
 }
