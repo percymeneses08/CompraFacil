@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Resultado</title>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/7863WhatsApp Image 2019-07-24 at 10.55.36 AM.ico">
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-database.js"></script>
+
 </head>
 <body>
     <div class="banner-resultados shadow">
@@ -14,39 +23,72 @@
     </div>
     <main>
         <div class="container-list">
-            <div class="productos">
-                <div class="categoria shadow">Producto/Tienda</div>
+            <div class="productos hide-responsive">
+                <div class="categoria shadow"><p>Producto/Tienda</p></div>
                 <div class="producto shadow">Leche</div>
                 <div class="producto shadow">Azucar</div>
                 <div class="producto shadow">Aceite</div>
                 <div class="producto shadow">Arroz</div>
-                <div class="destino shadow">Destino de compra en</div>
+                <div class="destino shadow hide-responsive">Destino de compra en</div>
+                <div class="destino shadow hide block-responsive">Comprar en</div>
             </div>
-            <div class="supermercado1">
+            <div id="metro" class="supermercado">
                 <div class="super shadow">Metro</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio_total shadow">$ 4</div>
+                <div class="container-product-metro">
+                    <div class="container-names">
+                        <div class="precio name shadow" id="leche-metro-name"><p>name</p></div>
+                        <div class="precio name shadow" id="azucar-metro-name"><p>name</p></div>
+                        <div class="precio name shadow" id="aceite-metro-name"><p>name</p></div>
+                        <div class="precio name shadow" id="arroz-metro-name"><p>name</p></div>
+                    </div>
+                    <div class="container-price">
+                        <div class="precio shadow" id="leche-metro-price">1</div>
+                        <div class="precio shadow" id="azucar-metro-price"></div>
+                        <div class="precio shadow" id="aceite-metro-price">1</div>
+                        <div class="precio shadow" id="arroz-metro-price">1</div>
+                    </div>
+                </div>
+                <div id="totalMetro" class="precio_total shadow"> 4</div>
             </div>
-            <div class="supermercado2">
+            <div id="tottus" class="supermercado">
                 <div class="super shadow">Tottus</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio_total shadow">$ 4</div>
+                <div class="container-product-tottus">
+                    <div class="container-names">
+                        <div class="precio name shadow" id="leche-tottus-name"><p>name</p></div>
+                        <div class="precio name shadow" id="azucar-tottus-name"><p>name</p></div>
+                        <div class="precio name shadow" id="aceite-tottus-name"><p>name</p></div>
+                        <div class="precio name shadow" id="arroz-tottus-name"><p>name</p></div>
+                    </div>
+                    <div class="container-price">
+                        <div class="precio shadow" id="leche-tottus-price">1</div>
+                        <div class="precio shadow" id="azucar-tottus-price">1</div>
+                        <div class="precio shadow" id="aceite-tottus-price">1</div>
+                        <div class="precio shadow" id="arroz-tottus-price">1</div>
+                    </div>
+                </div>
+                <div id="totalTottus" class="precio_total shadow">4</div>
             </div>
-            <div class="supermercado3">
+            <div id="wong" class="supermercado">
                 <div class="super shadow">Wong</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio shadow">$ 1</div>
-                <div class="precio_total shadow">$ 4</div>
+                <div class="container-product-wong">
+                    <div class="container-names">
+                        <div class="precio name shadow" id="leche-wong-name"><p>name</p></div>
+                        <div class="precio name shadow" id="azucar-wong-name"><p>name</p></div>
+                        <div class="precio name shadow" id="aceite-wong-name"><p>name</p></div>
+                        <div class="precio name shadow" id="arroz-wong-name"><p>name</p></div>
+                    </div>
+                    <div class="container-price">
+                        <div class="precio shadow" id="leche-wong-price">1</div>
+                        <div class="precio shadow" id="azucar-wong-price">15</div>
+                        <div class="precio shadow" id="aceite-wong-price">7</div>
+                        <div class="precio shadow" id="arroz-wong-price">11</div>
+                    </div>
+                </div>
+                <div id="totalWong" class="precio_total shadow">4</div>
             </div>
         </div>
     </main>
+    <script src="js/app.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
