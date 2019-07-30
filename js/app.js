@@ -11,19 +11,20 @@ const config = {
 firebase.initializeApp(config);
 // fin de la configuración con el firebase
 
-var nameHTML, productoHTML, producto, tienda, place, largo;
+var nameHTML, priceHTML, producto, tienda, place, largo;
+var costoTotal;
 
 var i;
 
-
-function MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo)
+function MostrarDatos(place, nameHTML, priceHTML, i, producto, tienda, largo, placeTotal)
 {
   var price = [];
   var minimo;
   // Extraigo los datos de firebase, 'Precio_float'
   // const dbRefObject1 = firebase.database().ref().child('Marca');
   var divName = document.getElementById(nameHTML);
-  var divPrice = document.getElementById(productoHTML);
+  var divPrice = document.getElementById(priceHTML);
+  var totalCost = document.getElementById(placeTotal);
   
   for (i = 0; i < largo; i++)
   {
@@ -32,13 +33,20 @@ function MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo)
     dbRefObject.on('value', function(datasnapshot) {
       price.push(parseFloat(datasnapshot.val()));
       // console.log(price);
-      minimo = Math.min.apply(null, price);
-      divPrice.innerText = minimo;
-
+      
       if (price.length == largo)
       {
+        minimo = Math.min.apply(null, price);
+        divPrice.innerText = minimo;
         // console.log(minimo);
+
+        // Guardo el total en una variable 'total' para luego cortarlo solo a dos decimales
+        var total = parseFloat(totalCost.innerText) + minimo;
+        // Aquí abajo lo corto con .toFixed(cantidad):
+        totalCost.innerText = total.toFixed(2); 
         
+        // Aquí le saco el índice del lugar dónde se encuentra alojado el mínimo en el array price[]
+        // Para luego usarlo en la extracción del nombre al que le corresponde dicho valor (minimo)
         var indice = (price.indexOf(minimo));
         // console.log(indice);
 
@@ -51,75 +59,79 @@ function MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo)
     });
   }
 }
+
 place = 'Supermercados';
 
 
 
 tienda = 'Metro';
+placeTotal = "totalMetro";
 
 nameHTML = "leche-metro-name";
-productoHTML = "leche-metro-price";
+priceHTML = "leche-metro-price";
 producto = 'Lacteos';
 largo = 449;
-MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+MostrarDatos(place, nameHTML, priceHTML, i, producto, tienda, largo, placeTotal);
 nameHTML = "azucar-metro-name";
-productoHTML = "azucar-metro-price";
+priceHTML = "azucar-metro-price";
 producto = 'Azucar';
 largo = 61;
-MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+MostrarDatos(place, nameHTML, priceHTML, i, producto, tienda, largo, placeTotal);
 nameHTML = "aceite-metro-name";
-productoHTML = "aceite-metro-price";
+priceHTML = "aceite-metro-price";
 producto = 'Aceites';
 largo = 54;
-MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+MostrarDatos(place, nameHTML, priceHTML, i, producto, tienda, largo, placeTotal);
 nameHTML = "arroz-metro-name";
-productoHTML = "arroz-metro-price";
+priceHTML = "arroz-metro-price";
 producto = 'Arroces';
 largo = 35;
-MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+MostrarDatos(place, nameHTML, priceHTML, i, producto, tienda, largo, placeTotal);
 
 tienda = 'Tottus';
+placeTotal = "totalTottus";
 
 nameHTML = "leche-tottus-name";
-productoHTML = "leche-tottus-price";
+priceHTML = "leche-tottus-price";
 producto = 'Lacteos';
 largo = 20;
-MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+MostrarDatos(place, nameHTML, priceHTML, i, producto, tienda, largo, placeTotal);
 nameHTML = "azucar-tottus-name";
-productoHTML = "azucar-tottus-price";
+priceHTML = "azucar-tottus-price";
 producto = 'Azucar';
 largo = 38;
-MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+MostrarDatos(place, nameHTML, priceHTML, i, producto, tienda, largo, placeTotal);
 nameHTML = "aceite-tottus-name";
-productoHTML = "aceite-tottus-price";
+priceHTML = "aceite-tottus-price";
 producto = 'Aceites';
 largo = 85;
-MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+MostrarDatos(place, nameHTML, priceHTML, i, producto, tienda, largo, placeTotal);
 nameHTML = "arroz-tottus-name";
-productoHTML = "arroz-tottus-price";
+priceHTML = "arroz-tottus-price";
 producto = 'Arroces';
 largo = 47;
-MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+MostrarDatos(place, nameHTML, priceHTML, i, producto, tienda, largo, placeTotal);
 
 tienda = 'Wong';
+placeTotal = "totalWong";
 
 nameHTML = "leche-wong-name";
-productoHTML = "leche-wong-price";
+priceHTML = "leche-wong-price";
 producto = 'Lacteos';
 largo = 697;
-MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+MostrarDatos(place, nameHTML, priceHTML, i, producto, tienda, largo, placeTotal);
 nameHTML = "azucar-wong-name";
-productoHTML = "azucar-wong-price";
+priceHTML = "azucar-wong-price";
 producto = 'Azucar';
 largo = 68;
-MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+MostrarDatos(place, nameHTML, priceHTML, i, producto, tienda, largo, placeTotal);
 nameHTML = "aceite-wong-name";
-productoHTML = "aceite-wong-price";
+priceHTML = "aceite-wong-price";
 producto = 'Aceites';
 largo = 89;
-MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+MostrarDatos(place, nameHTML, priceHTML, i, producto, tienda, largo, placeTotal);
 nameHTML = "arroz-wong-name";
-productoHTML = "arroz-wong-price";
+priceHTML = "arroz-wong-price";
 producto = 'Arroces';
 largo = 35;
-MostrarDatos(place, nameHTML, productoHTML, i, producto, tienda, largo);
+MostrarDatos(place, nameHTML, priceHTML, i, producto, tienda, largo, placeTotal);
